@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
     // Organisation Routes
     Route::post('/user/login','AuthApiController@login')->name('api.login');
     Route::middleware('auth:api')->group(function () {
+    Route::get('/all/users', 'AuthApiController@all_users')->name('all.users');
     // Index: Get a list of organisations
     Route::get('/organisations', 'OrganisationController@index')->name('organisations.index');
 
@@ -33,6 +34,9 @@ use Illuminate\Support\Facades\Route;
 
     // Destroy: Delete a specific organisation
     Route::delete('/organisations/{id}', 'OrganisationController@destroy')->name('organisations.destroy');
+
+    //Store: Add a user to the organisation
+    Route::post('/organisations/add/user/{organisationId}', 'OrganisationController@add_user')->name('organisations.add.user');
 
      // Index: Get a list of to-do items for a specific organisation
     Route::get('/organisations/todo-items/{organisationId}', 'TodoItemController@index')->name('todo-items.index');

@@ -75,6 +75,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "all.users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTRkZTNjMzM5Mzc1ZTA5ZDdkNzI5YzZjNDJiMWMxOTlhMzg2MDBmYTc3NDEzMTU5M2VkZGQyNjRhYzFkMjVmMWNiNDlhMTVjOTlkYjU5ZTUiLCJpYXQiOjE3MDAxNTQxNzkuNjI3Njk4LCJuYmYiOjE3MDAxNTQxNzkuNjI3NzAxLCJleHAiOjE3MzE3NzY1NzkuNTEyMDczLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.AAM2653pQfC-wv53c2a6STx-2i2fjB1Z4swlKmKy7viTlenb6LzQdOCDKOcGZNqN6jQuiwDR8KuBCB34DeaXQ6ZwqOlI_O6_cC3PqN6ABeHFfHkBICO1zmVX2sOz30A2W0iUeci6N80OQU_ZBkp3BQT9jug-oJhO8QroKTfaCYL-f9WAOVW7RMTsEM87KEF3Af3uDesCsdcVVjqSZWoA5XOys6Pm7KHYfkJEje89QyPwF4Nf4t9ah5lxM0YZxYSLqEM17DD-NxeK3CfxYmh9QgEFMMkaav6ImuQk7hFyTVKzd12_PvjGGAYUIqxtygwmAkj5hbkI-7-clJb3gs5GKsshBkIYn28oghk7s88OrvOzNx0aECgaXR-_U9ezqkEZWVoG0PY8rfSjNQs2xoaXArIPoYTzWtIiIWWq-UMmV4jyrcx5tjbbzcwvAHpAvQgUNnN85WGWtBml0ob_pZYbZyCLH0uOWPkTx7i0UeY7NhElDA1O-0XhDfthKRXbHiUYwYUrfe6OczAN-g--smRGqfDZ4AF8geD9836p4XyU2JzGrTxcUq2SFcN3V6vR4qsFwpMaY7RoXCHY4apbk1LB3RipmF_8Os4kd7qVb9vVTejGlfIExWkkkEnRUb6aDXVTDWmR5gKITqxI8zpBrFYdcuWIN_aZnrTL7DLO6YVXM5s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/all/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"all",
+								"users"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -272,6 +302,47 @@
 								"api",
 								"organisations",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "organisations.add.user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTRkZTNjMzM5Mzc1ZTA5ZDdkNzI5YzZjNDJiMWMxOTlhMzg2MDBmYTc3NDEzMTU5M2VkZGQyNjRhYzFkMjVmMWNiNDlhMTVjOTlkYjU5ZTUiLCJpYXQiOjE3MDAxNTQxNzkuNjI3Njk4LCJuYmYiOjE3MDAxNTQxNzkuNjI3NzAxLCJleHAiOjE3MzE3NzY1NzkuNTEyMDczLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.AAM2653pQfC-wv53c2a6STx-2i2fjB1Z4swlKmKy7viTlenb6LzQdOCDKOcGZNqN6jQuiwDR8KuBCB34DeaXQ6ZwqOlI_O6_cC3PqN6ABeHFfHkBICO1zmVX2sOz30A2W0iUeci6N80OQU_ZBkp3BQT9jug-oJhO8QroKTfaCYL-f9WAOVW7RMTsEM87KEF3Af3uDesCsdcVVjqSZWoA5XOys6Pm7KHYfkJEje89QyPwF4Nf4t9ah5lxM0YZxYSLqEM17DD-NxeK3CfxYmh9QgEFMMkaav6ImuQk7hFyTVKzd12_PvjGGAYUIqxtygwmAkj5hbkI-7-clJb3gs5GKsshBkIYn28oghk7s88OrvOzNx0aECgaXR-_U9ezqkEZWVoG0PY8rfSjNQs2xoaXArIPoYTzWtIiIWWq-UMmV4jyrcx5tjbbzcwvAHpAvQgUNnN85WGWtBml0ob_pZYbZyCLH0uOWPkTx7i0UeY7NhElDA1O-0XhDfthKRXbHiUYwYUrfe6OczAN-g--smRGqfDZ4AF8geD9836p4XyU2JzGrTxcUq2SFcN3V6vR4qsFwpMaY7RoXCHY4apbk1LB3RipmF_8Os4kd7qVb9vVTejGlfIExWkkkEnRUb6aDXVTDWmR5gKITqxI8zpBrFYdcuWIN_aZnrTL7DLO6YVXM5s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\" :\"member\", \r\n    \"user_id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/organisations/add/user/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"organisations",
+								"add",
+								"user",
+								"2"
 							]
 						}
 					},

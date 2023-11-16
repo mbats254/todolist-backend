@@ -89,4 +89,11 @@ class AuthApiController extends Controller
     {
         return response()->json(['error'=>'Login and Pass Key'], 400);
     }
+
+    public function all_users(Request $request)
+    {
+        $users = User::where('role','!=','admin')->where('organisation_id','=',null)->get();
+        // $users = User::get();
+        return response()->json([$users]);
+    }
 }

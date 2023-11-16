@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Organisation;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class OrganisationController extends Controller
@@ -97,5 +98,24 @@ class OrganisationController extends Controller
         $organisation->delete();
 
         return response()->json(['message' => 'Organisation deleted successfully']);
+    }
+
+    public function add_user(Request $request)
+    {
+        
+        $user_update = User::where('id','=',$request->user_id)->update([
+            'role' => $request->role,
+            'organisation_id' => $request->organisationId
+        ]);
+        if($user_update == 1)
+        {   
+            $user = User::find($request->user_id);
+            return response()->json([$user]);
+        }
+        else
+        {
+            return response()->json(['error'=> "Didn`t update"]);
+        }
+       
     }
 }
