@@ -36,7 +36,10 @@ use Illuminate\Support\Facades\Route;
     Route::delete('/organisations/{id}', 'OrganisationController@destroy')->name('organisations.destroy');
 
     //Store: Add a user to the organisation
-    Route::post('/organisations/add/user/{organisationId}', 'OrganisationController@add_user')->name('organisations.add.user');
+    Route::post('/organisations/add/user', 'OrganisationController@add_user')->name('organisations.add.user');
+
+    //Store: Add a user to the organisation
+    Route::post('/organisations/all/members', 'OrganisationController@all_members')->name('organisations.all.members');
 
      // Index: Get a list of to-do items for a specific organisation
     Route::get('/organisations/todo-items/{organisationId}', 'TodoItemController@index')->name('todo-items.index');

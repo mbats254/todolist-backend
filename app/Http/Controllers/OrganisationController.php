@@ -101,11 +101,11 @@ class OrganisationController extends Controller
     }
 
     public function add_user(Request $request)
-    {
-        
+    {           
+        return response()->json([$request->all()]);
         $user_update = User::where('id','=',$request->user_id)->update([
             'role' => $request->role,
-            'organisation_id' => $request->organisationId
+            'organisation_id' => (int) $request->organisationId
         ]);
         if($user_update == 1)
         {   
@@ -117,5 +117,11 @@ class OrganisationController extends Controller
             return response()->json(['error'=> "Didn`t update"]);
         }
        
+    }
+
+    public function all_members(Request $request)
+    {
+        $users = User::where('organisation_id','=',$request->organisation_id)->get();
+        return response()->json([$users]);
     }
 }
