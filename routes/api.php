@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/user/register','AuthApiController@register')->name('api.register');
-Route::get('/login/error','AuthApiController@api_error')->name('api.login.error');
-// Organisation Routes
-
+    Route::post('/user/register','AuthApiController@register')->name('api.register');
+    Route::get('/login/error','AuthApiController@api_error')->name('api.login.error');
+    // Organisation Routes
+    Route::post('/user/login','AuthApiController@login')->name('api.login');
 Route::group(['middleware' => 'auth:api'], function () {
     // Index: Get a list of organisations
     Route::get('/organisations', 'OrganisationController@index')->name('organisations.index');

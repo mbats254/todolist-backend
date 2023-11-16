@@ -84,4 +84,9 @@ class AuthApiController extends Controller
             return response()->json(['success'=>"User_does_not_exist"],400); //Does Not exist
         }
     }
+
+    public function api_error(Request $request)
+    {
+        return response()->json(['error'=>'Login and Pass Key'], 400);
+    }
 }
