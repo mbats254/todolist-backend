@@ -18,23 +18,21 @@ use Illuminate\Support\Facades\Route;
     Route::get('/login/error','AuthApiController@api_error')->name('api.login.error');
     // Organisation Routes
     Route::post('/user/login','AuthApiController@login')->name('api.login');
-Route::group(['middleware' => 'auth:api'], function () {
+    Route::middleware('auth:api')->group(function () {
     // Index: Get a list of organisations
     Route::get('/organisations', 'OrganisationController@index')->name('organisations.index');
 
     // Show: Get a specific organisation
-    Route::get('/organisations/{organisation}', 'OrganisationController@show')->name('organisations.show');
+    Route::get('/organisations/{id}', 'OrganisationController@show')->name('organisations.show');
 
     // Store: Create a new organisation
     Route::post('/organisations', 'OrganisationController@store')->name('organisations.store');
 
     // Update: Update a specific organisation
-    Route::put('/organisations/{organisation}', 'OrganisationController@update')->name('organisations.update');
+    Route::put('/organisations/{id}', 'OrganisationController@update')->name('organisations.update');
 
     // Destroy: Delete a specific organisation
-    Route::delete('/organisations/{organisation}', 'OrganisationController@destroy')->name('organisations.destroy');
+    Route::delete('/organisations/{id}', 'OrganisationController@destroy')->name('organisations.destroy');
 });
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+

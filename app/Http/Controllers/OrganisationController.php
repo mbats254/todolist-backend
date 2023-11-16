@@ -16,7 +16,8 @@ class OrganisationController extends Controller
     public function index()
     {
         // Retrieve organisations based on user role
-        $organisations = Auth::user()->organisations;
+        $organisations = Organisation::get();
+
 
         return response()->json(['organisations' => $organisations]);
     }
@@ -36,10 +37,10 @@ class OrganisationController extends Controller
         // Create a new organisation
         $organisation = Organisation::create([
             'name' => $request->input('name'),
+            'uniqid' => uniqid()
         ]);
 
-        // Attach the organisation to the current user (assuming you have a many-to-many relationship)
-        $organisation->users()->attach(auth()->id());
+       
 
         return response()->json(['organisation' => $organisation], 201);
     }
@@ -50,10 +51,9 @@ class OrganisationController extends Controller
      * @param  \App\Models\Organisation  $organisation
      * @return \Illuminate\Http\Response
      */
-    public function show(Organisation $organisation)
+    public function show(Request $request)
     {
-        // Check if the user has access to the organisation
-        $this->authorize('view', $organisation);
+        $organisation = Organisation::where('id','=',$request->id)->first();
 
         return response()->json(['organisation' => $organisation]);
     }
@@ -65,15 +65,14 @@ class OrganisationController extends Controller
      * @param  \App\Models\Organisation  $organisation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Organisation $organisation)
+    public function update(Request $request)
     {
-        // Check if the user has access to update the organisation
-        $this->authorize('update', $organisation);
+      
 
         $request->validate([
             'name' => 'required|string|max:255',
         ]);
-
+        $organisation = Organisation::where('id','=',$request->id)->first();
         // Update organisation details
         $organisation->update([
             'name' => $request->input('name'),
@@ -88,13 +87,11 @@ class OrganisationController extends Controller
      * @param  \App\Models\Organisation  $organisation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Organisation $organisation)
+    public function destroy(Request $request)
     {
-        // Check if the user has access to delete the organisation
-        $this->authorize('delete', $organisation);
+        
 
-        // Detach the organisation from all users before deleting
-        $organisation->users()->detach();
+        $organisation = Organisation::where('id','=',$request->id)->first();
 
         // Delete the organisation
         $organisation->delete();
