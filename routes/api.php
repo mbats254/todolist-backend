@@ -33,6 +33,21 @@ use Illuminate\Support\Facades\Route;
 
     // Destroy: Delete a specific organisation
     Route::delete('/organisations/{id}', 'OrganisationController@destroy')->name('organisations.destroy');
+
+     // Index: Get a list of to-do items for a specific organisation
+    Route::get('/organisations/todo-items/{organisationId}', 'TodoItemController@index')->name('todo-items.index');
+
+    // Show: Get a specific to-do item for a specific organisation
+    Route::get('/organisations/todo-items/{organisationId}/{todoItemId}', 'TodoItemController@show')->name('todo-items.show');
+
+    // Store: Create a new to-do item for a specific organisation
+    Route::post('/organisations/todo-items/{organisationId}', 'TodoItemController@store')->name('todo-items.store');
+
+    // Update: Update a specific to-do item for a specific organisation
+    Route::put('/organisations/todo-items/{organisationId}/{todoItemId}', 'TodoItemController@update')->name('todo-items.update');
+
+    // Destroy: Delete a specific to-do item for a specific organisation
+    Route::delete('/organisations/{organisationId}/todo-items/{todoItemId}', 'TodoItemController@destroy')->name('todo-items.destroy');
 });
 
 
