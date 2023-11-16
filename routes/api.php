@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/user/register','ApiAuthCntroller@register')->name('api.register');
-Route::get('/login/error','ApiAuthCntroller@api_error')->name('api.login.error');
+Route::post('/user/register','AuthApiController@register')->name('api.register');
+Route::get('/login/error','AuthApiController@api_error')->name('api.login.error');
 // Organisation Routes
 
 Route::group(['middleware' => 'auth:api'], function () {
