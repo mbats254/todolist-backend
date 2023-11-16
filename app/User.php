@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role'
     ];
 
     /**
@@ -36,4 +36,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Define relationships
+    public function organisations()
+    {
+        return $this->belongsToMany(Organisation::class);
+    }
+
+    public function todoItems()
+    {
+        return $this->hasMany(TodoItem::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+        // You might have a different way of determining admin status,
+        // such as checking for a specific role in a roles table.
+    }
 }
