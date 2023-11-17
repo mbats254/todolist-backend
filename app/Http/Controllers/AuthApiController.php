@@ -66,7 +66,9 @@ class AuthApiController extends Controller
                 $success['token'] =  $user->createToken('Todo')->accessToken;
                 $success['name'] =  $user->name;
                 $success['email'] = $user->email;
-                $success['uniqid'] = $user->uniqid;
+                $success['rank'] = $user->rank;
+                $success['organisation_id'] = $user->organisation_id;
+                $success['id'] = $user->id;
 
                 if($user->role == 'admin')
                 {

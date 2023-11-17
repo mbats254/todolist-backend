@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TodoItem;
+use App\User;
 use App\Organisation; // Make sure to include the Organisation model if not already done
 use Illuminate\Support\Facades\Auth;
 
@@ -39,8 +40,10 @@ class TodoItemController extends Controller
         ]);
         // return response()->json([$request->organisationId]);
         // Check if the user is a member of the specified organisation
-        $organisation = Organisation::where('id','=',$request->organisationId)->first();
-        
+        $user = User::where('id','=',$request->user_id)->first();
+        // return response()->json([$user], 200);
+        $organisation = Organisation::where('id','=',$user->organisation_id)->first();
+       
         if($organisation)
         {
               // Create a new to-do item
@@ -123,5 +126,13 @@ class TodoItemController extends Controller
         $todoItem->delete();
 
         return response()->json(['message' => 'To-Do Item deleted successfully']);
+    }
+
+    public function userTasks(Request $request)
+    {
+   
+        $todoItems = TodoItem::where('user_id','=',$request->user_id)->get();
+        // $todoItems = TodoItem::get();
+        return response()->json([$todoItems]);
     }
 }

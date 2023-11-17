@@ -38,7 +38,7 @@ use Illuminate\Support\Facades\Route;
     //Store: Add a user to the organisation
     Route::post('/organisations/add/user', 'OrganisationController@add_user')->name('organisations.add.user');
 
-    //Store: Add a user to the organisation
+    //Posy: All users to the organisation
     Route::post('/organisations/all/members', 'OrganisationController@all_members')->name('organisations.all.members');
 
      // Index: Get a list of to-do items for a specific organisation
@@ -48,13 +48,16 @@ use Illuminate\Support\Facades\Route;
     Route::get('/organisations/todo-items/{organisationId}/{todoItemId}', 'TodoItemController@show')->name('todo-items.show');
 
     // Store: Create a new to-do item for a specific organisation
-    Route::post('/organisations/todo-items/{organisationId}', 'TodoItemController@store')->name('todo-items.store');
+    Route::post('/organisations/todo-items/', 'TodoItemController@store')->name('todo-items.store');
 
     // Update: Update a specific to-do item for a specific organisation
     Route::put('/organisations/todo-items/{organisationId}/{todoItemId}', 'TodoItemController@update')->name('todo-items.update');
 
     // Destroy: Delete a specific to-do item for a specific organisation
     Route::delete('/organisations/{organisationId}/todo-items/{todoItemId}', 'TodoItemController@destroy')->name('todo-items.destroy');
+
+    // Show: Get a all the to-do items for a specific user
+    Route::post('/organisations/todo-items/user', 'TodoItemController@userTasks')->name('todo-items.user.tasks');
 });
 
 

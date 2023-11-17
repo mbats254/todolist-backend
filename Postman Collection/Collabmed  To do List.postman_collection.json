@@ -17,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"Manio\",\r\n    \"email\":\"mbatiacisco@gmail.com\",\r\n    \"password\": \"Qwerty123!\",\r\n    \"c_password\": \"Qwerty123!\",\r\n    \"role\":\"admin\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"Manio\",\r\n    \"email\":\"mbatiamuniu@gmail.com\",\r\n    \"password\": \"Qwerty123!\",\r\n    \"c_password\": \"Qwerty123!\"\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -347,6 +347,46 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "organisations.all.members",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTI2YWViZDM2YTIzNzE3MjQ1YWRhMWY3MjEwNTZmNjQ1ZGZkNGU3YjExNjQ3NTU4Mzg4ODRlMzQ1ZDBmNDRmNjI3MzBiYzIxYjU4OTRlYTMiLCJpYXQiOjE3MDAxODcwNTMuNTg2Nzc3LCJuYmYiOjE3MDAxODcwNTMuNTg2NzgyLCJleHAiOjE3MzE4MDk0NTMuNDEzNTA1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.RYm0OrT4FtlDnhK83DpLjG6KhfIJxdoK92rnG1-JpSmC5ODSqoXHhy9eM6zOcJ9O2B5ceaNNv3HUBMHJJ6-jxW912ztr_VXC2jXzWe_ct4fzpBPoK-7jGc1mlUO1lmlZO2LL7fYa4E4rXnOfIF41gD1yZLWdJSbj-094zI9CHP71p1Cy67Q2fw_1r_Wlc8TSdVIHAkU8QeWKjtpsFu4h7LJvoSVl3K0LzT6adKvbXbmrNg9EP0h80-u8xAg6KTsA2OslFh93t7SlFu2sbeGR1d4owlSZW73g7VMtwbrf7txYbvSyLy9Mjaitan1hv1p5cc9EyfmoheXajg_SSY4_aYSD4l4hNeT5Q6aACNk5WKUSZl-eHK6C_1WFWgKzJjTGky67oSFwFQ28TKyI6HofhJKzRqfOT0H8TI_UEMahsJf7eJW__L9IJwRaxsJf7_jvJp8rh48_MHdnEL6M8z8XwNq2XBEPcN27lTeUz_XIe0Rnsx12PUjZMl0oWH6OiUoC4wKM9YZg6o-Dx8KLLOFoY_zln7qQmzaUSoIDjwSamDCJtlfuXnRva2X0N5ftbjS4rQ0CQnZeXi8zJx3GcJ1ZYnl8qknmweCaZNaOCJ5k0ac0t3nf7lFgL_w2YNVXihW4TBYgurdtRA2hx-iEBORdigxYqrzsU7EC_zl4OvxHDP8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organisation_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/organisations/all/members",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"organisations",
+								"all",
+								"members"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -529,16 +569,48 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "todo-items.user.tasks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTI2YWViZDM2YTIzNzE3MjQ1YWRhMWY3MjEwNTZmNjQ1ZGZkNGU3YjExNjQ3NTU4Mzg4ODRlMzQ1ZDBmNDRmNjI3MzBiYzIxYjU4OTRlYTMiLCJpYXQiOjE3MDAxODcwNTMuNTg2Nzc3LCJuYmYiOjE3MDAxODcwNTMuNTg2NzgyLCJleHAiOjE3MzE4MDk0NTMuNDEzNTA1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.RYm0OrT4FtlDnhK83DpLjG6KhfIJxdoK92rnG1-JpSmC5ODSqoXHhy9eM6zOcJ9O2B5ceaNNv3HUBMHJJ6-jxW912ztr_VXC2jXzWe_ct4fzpBPoK-7jGc1mlUO1lmlZO2LL7fYa4E4rXnOfIF41gD1yZLWdJSbj-094zI9CHP71p1Cy67Q2fw_1r_Wlc8TSdVIHAkU8QeWKjtpsFu4h7LJvoSVl3K0LzT6adKvbXbmrNg9EP0h80-u8xAg6KTsA2OslFh93t7SlFu2sbeGR1d4owlSZW73g7VMtwbrf7txYbvSyLy9Mjaitan1hv1p5cc9EyfmoheXajg_SSY4_aYSD4l4hNeT5Q6aACNk5WKUSZl-eHK6C_1WFWgKzJjTGky67oSFwFQ28TKyI6HofhJKzRqfOT0H8TI_UEMahsJf7eJW__L9IJwRaxsJf7_jvJp8rh48_MHdnEL6M8z8XwNq2XBEPcN27lTeUz_XIe0Rnsx12PUjZMl0oWH6OiUoC4wKM9YZg6o-Dx8KLLOFoY_zln7qQmzaUSoIDjwSamDCJtlfuXnRva2X0N5ftbjS4rQ0CQnZeXi8zJx3GcJ1ZYnl8qknmweCaZNaOCJ5k0ac0t3nf7lFgL_w2YNVXihW4TBYgurdtRA2hx-iEBORdigxYqrzsU7EC_zl4OvxHDP8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 2\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/organisations/todo-items/user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"organisations",
+								"todo-items",
+								"user"
+							]
+						}
+					},
+					"response": []
 				}
 			]
-		},
-		{
-			"name": "New Request",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	]
 }
